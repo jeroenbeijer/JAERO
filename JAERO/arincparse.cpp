@@ -65,7 +65,16 @@ void ArincParse::try_acars_apps(ACARSItem &acarsitem, la_msg_dir msg_dir)
     }
     else
     {
-        ba = acarsitem.message.toLatin1();
+        QString cleaned;
+        if(acarsitem.message.startsWith("- #MD/"))
+        {
+            cleaned = "/" + acarsitem.message.right(acarsitem.message.length()-8).replace("- #MD", "").trimmed();
+            ba = cleaned.toLatin1();
+
+        }else
+        {
+            ba = acarsitem.message.toLatin1();
+        }
     }
     if(ba.isEmpty())return;
 
