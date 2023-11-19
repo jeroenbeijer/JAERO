@@ -65,7 +65,6 @@ void ArincParse::try_acars_apps(ACARSItem &acarsitem, la_msg_dir msg_dir)
     }
     else
     {
-
         // look for a sublabel and if found strip the sublabel(s) from the message before decoding
         ba = acarsitem.message.toLatin1();
         char sublabel[3];
