@@ -945,7 +945,7 @@ private:
     QPointer<QIODevice> psinkdevice;
     QVector<short> sbits;
     QByteArray decodedbytes;
-    PreambleDetector preambledetector;
+    PreambleDetectorPhaseInvariant preambledetector;
 
     //burstmode really not sure this is used
     PreambleDetector preambledetectorburst;

@@ -1269,6 +1269,21 @@ QByteArray &AeroL::Decode(QVector<short> &bits, bool soft)//0 bit --> oldest bit
           else
           {
             gotsync=preambledetector.Update(bit);
+
+            if(preambledetector.inverted)
+            {
+
+                bit=1-bit;
+
+                if(soft_bit > 128)
+                {
+                    soft_bit = 255-soft_bit;
+                }
+                else if (soft_bit < 128)
+                {
+                    soft_bit = 255-soft_bit;
+                }
+            }
           }
 
         if(cntr<1000000000)cntr++;
